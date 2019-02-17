@@ -80,8 +80,7 @@ definitions:
         type: array
         items:
           type: string
-        minItems: 6
-        maxItems: 6
+        minItems: 4
   StatsResponse:
     required:
     - count_mutant_dna
