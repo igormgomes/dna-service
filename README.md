@@ -13,3 +13,5 @@ mvn clean package docker:build
 docker-compose up
 ```
 Access the o swagger [Swagger](https://raw.githubusercontent.com/igormgomes/dna-service/master/src/main/resources/dna-swagger.yaml?token=AL6NNH_5CgEd94DaSQosVK9W5EDwEbrZks5cafDBwA%3D%3D).
+
+The application was hosted on [Heroku](https://dashboard.heroku.com/apps)

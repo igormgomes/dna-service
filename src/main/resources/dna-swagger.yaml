@@ -6,7 +6,7 @@ info:
   contact:
     name: Igor
     email: igormgomes94@gmail.com
-host: swagger.io
+host: dna-service.herokuapp.com
 basePath: /api
 schemes:
 - http
