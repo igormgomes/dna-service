@@ -1,0 +1,113 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Swagger DNA
+  description: A sample API DNA
+  contact:
+    name: Igor
+    email: igormgomes94@gmail.com
+host: swagger.io
+basePath: /api
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /simian:
+    post:
+      description: Creates a new DNA register
+      operationId: save
+      parameters:
+      - name: simian
+        in: body
+        description: Simian to add
+        required: true
+        schema:
+          $ref: '#/definitions/DNARequest'
+      responses:
+        "201":
+          description: created register
+        "400":
+          description: Invalid parameter
+          schema:
+            $ref: '#/definitions/Error'
+        "403":
+          description: Invalid DNA
+          schema:
+            $ref: '#/definitions/Error'
+        "412":
+          description: DNA already registered
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /stats:
+    get:
+      description: Find stats
+      operationId: find
+      responses:
+        "200":
+          description: pet response
+          schema:
+            $ref: '#/definitions/StatsResponse'
+        "404":
+          description: Stats not found
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  DNARequest:
+    required:
+    - dna
+    properties:
+      dna:
+        type: array
+        items:
+          type: string
+        minItems: 6
+        maxItems: 6
+  StatsResponse:
+    required:
+    - count_mutant_dna
+    - count_human_dna
+    - ratio
+    properties:
+      count_mutant_dna:
+        type: integer
+        description: Mutant DNA count
+        example: 40
+      count_human_dna:
+        type: integer
+        description: Human DNA count
+        example: 100
+      ratio:
+        type: number
+        example: 0.4
+
+  Error:
+    type: array
+    items:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
