@@ -15,7 +15,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /simian:
+  /dna/simian:
     post:
       description: Creates a new DNA register
       operationId: save
@@ -32,24 +32,24 @@ paths:
         "400":
           description: Invalid parameter
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         "403":
           description: Invalid DNA
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         "412":
           description: DNA already registered
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         default:
           description: unexpected error
           schema:
-            $ref: '#/definitions/Error'
-  /stats:
+            $ref: '#/definitions/ErrorMessage'
+  /dna/stats:
     get:
       description: Find stats
       operationId: find
@@ -61,15 +61,15 @@ paths:
         "404":
           description: Stats not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
         default:
           description: unexpected error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ErrorMessage'
 
 definitions:
   DNARequest:
@@ -100,14 +100,11 @@ definitions:
         type: number
         example: 0.4
 
-  Error:
-    type: array
-    items:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-        message:
+  ErrorMessage:
+    required:
+    - errors
+    properties:
+      errors:
+        type: array
+        items:
           type: string

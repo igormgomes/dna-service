@@ -3,7 +3,7 @@ spring:
     mongodb:
       database: dna
       port: 27017
-      host: mongodb
+      host: localhost
 logging:
   level:
     org.springframework.data.mongodb.core.MongoTemplate: DEBUG
