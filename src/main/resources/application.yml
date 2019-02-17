@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      database: dna
+      port: 27017
+      host: mongodb
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
