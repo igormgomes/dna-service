@@ -2,10 +2,6 @@ package com.dna.service.validator.impl;
 
 import com.dna.service.validator.DNAValidator;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.util.StringUtils.isEmpty;
 

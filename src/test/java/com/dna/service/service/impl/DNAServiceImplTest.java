@@ -3,7 +3,6 @@ package com.dna.service.service.impl;
 import com.dna.service.component.DNACheckerFacade;
 import com.dna.service.document.DNAAgregate;
 import com.dna.service.document.DNADocument;
-import com.dna.service.document.DNAType;
 import com.dna.service.exception.InvalidDNATypeException;
 import com.dna.service.repository.DNARepository;
 import com.dna.service.service.DNAService;
@@ -18,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;

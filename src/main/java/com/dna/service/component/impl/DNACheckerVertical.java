@@ -4,6 +4,7 @@ import com.dna.service.component.DNAChecker;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Component
