@@ -1,10 +1,10 @@
 package com.dna.service.component.impl;
 
 import com.dna.service.component.DNAChecker;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -19,7 +19,7 @@ class DNACheckerDiagonal implements DNAChecker {
 
     @Override
     public boolean isAnySimian(char[][] dnas) {
-        List<String> diagonal = new ArrayList<>();
+        List<String> diagonal = Lists.newArrayList();
         StringBuilder builder = new StringBuilder();
         StringBuilder builderInverse = new StringBuilder();
 
