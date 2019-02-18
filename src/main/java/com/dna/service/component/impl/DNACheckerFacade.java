@@ -1,5 +1,6 @@
-package com.dna.service.component;
+package com.dna.service.component.impl;
 
+import com.dna.service.component.DNAChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.dna.service.service.impl;
 
-import com.dna.service.component.DNACheckerFacade;
+import com.dna.service.component.impl.DNACheckerFacade;
 import com.dna.service.document.DNAAgregate;
 import com.dna.service.document.DNADocument;
 import com.dna.service.document.DNAType;

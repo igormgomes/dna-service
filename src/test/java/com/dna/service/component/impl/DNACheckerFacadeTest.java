@@ -1,8 +1,5 @@
-package com.dna.service.component;
+package com.dna.service.component.impl;
 
-import com.dna.service.component.impl.DNACheckerHorizontal;
-import com.dna.service.component.impl.DNACheckerVertical;
-import com.dna.service.component.impl.SimianPattern;
 import com.dna.service.document.DNADocument;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,6 +21,7 @@ public class DNACheckerFacadeTest {
     private SimianPattern simianPattern;
     private DNACheckerHorizontal dnaCheckerHorizontal;
     private DNACheckerVertical dnaCheckerVertical;
+    private DNACheckerDiagonal dnaCheckerDiagonal;
 
     private DNACheckerFacade dnaCheckerFacade;
 
@@ -31,13 +29,15 @@ public class DNACheckerFacadeTest {
     public void before(){
         this.dnaCheckerHorizontal = new DNACheckerHorizontal(this.simianPattern);
         this.dnaCheckerVertical = new DNACheckerVertical(this.simianPattern);
-        this.dnaCheckerFacade = new DNACheckerFacade(Lists.newArrayList(this.dnaCheckerHorizontal, this.dnaCheckerVertical));
+        this.dnaCheckerDiagonal = new DNACheckerDiagonal(this.simianPattern);
+        this.dnaCheckerFacade = new DNACheckerFacade(Lists.newArrayList(this.dnaCheckerHorizontal,
+                this.dnaCheckerVertical, this.dnaCheckerDiagonal));
     }
 
     @Test
     public void shouldNotFindSimian(){
         DNADocument dnaDocument = DNADocument.builder()
-                .dna(Lists.newArrayList("CCSCTA", "BBBA"))
+                .dna(Lists.newArrayList("QQQQ", "QQQQ", "XXXX", "XXXX"))
                 .build();
         boolean simian = this.dnaCheckerFacade.isSimian(dnaDocument.getDna());
 
@@ -47,7 +47,7 @@ public class DNACheckerFacadeTest {
     @Test
     public void shouldFindSimian(){
         DNADocument dnaDocument = DNADocument.builder()
-                .dna(Lists.newArrayList("CCCCTA", "BBBB"))
+                .dna(Lists.newArrayList("QQQQ", "QQQQ", "XXXX", "AAAA"))
                 .build();
         boolean simian = this.dnaCheckerFacade.isSimian(dnaDocument.getDna());
 

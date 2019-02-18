@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DNACheckerHorizontal implements DNAChecker {
+class DNACheckerHorizontal implements DNAChecker {
 
     private final SimianPattern simianPattern;
 
